@@ -12,7 +12,7 @@ Rebuilds, as code, a lab I originally created by hand in the Azure Portal. Every
 | Virtual network (`10.0.0.0/16`) | `azurerm_virtual_network.lab` | `vnet-terraform-lab` |
 | Subnet (`10.0.1.0/24`) | `azurerm_subnet.subnet` | `subnet-web` |
 | Network security group (allows SSH inbound) | `azurerm_network_security_group.web` | `nsg-web` |
-| NSG-to-subnet association | `azurerm_subnet_network_security_group_association.nsg-bind` | nsg-bind |
+| NSG-to-subnet association | `azurerm_subnet_network_security_group_association.nsg-bind` | `nsg-bind` |
 
 Resources are wired together through references (for example `azurerm_resource_group.lab.name`), so Terraform works out the creation order on its own and destroys in the reverse order.
 
