@@ -80,3 +80,29 @@ resource "azurerm_network_interface" "nic" {
     public_ip_address_id          = azurerm_public_ip.vm.id
   }
 }
+
+resource "azurerm_linux_virtual_machine" "vm" {
+  name                  = "vm-terraform-lab"
+  location              = azurerm_resource_group.lab.location
+  resource_group_name   = azurerm_resource_group.lab.name
+  size                  = "Standard_D2als_v6"
+  admin_username        = "azureuser"
+  network_interface_ids = [azurerm_network_interface.nic.id]
+
+  admin_ssh_key {
+    username   = "azureuser"
+    public_key = file("~/.ssh/id_ed25519.pub")
+  }
+
+  os_disk {
+    caching              = "ReadWrite"
+    storage_account_type = "Standard_LRS"
+  }
+
+  source_image_reference {
+    publisher = "Canonical"
+    offer     = "ubuntu-24_04-lts"
+    sku       = "server"
+    version   = "latest"
+  }
+}
