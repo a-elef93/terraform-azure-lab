@@ -6,10 +6,10 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name = "rg-tfstate"
+    resource_group_name  = "rg-tfstate"
     storage_account_name = "tfstatetasos2026"
-    container_name = "tfstate"
-    key = "terraform-lab.tfstate"
+    container_name       = "tfstate"
+    key                  = "terraform-lab.tfstate"
   }
 }
 
@@ -91,7 +91,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   name                  = "vm-terraform-lab"
   location              = azurerm_resource_group.lab.location
   resource_group_name   = azurerm_resource_group.lab.name
-  size                  = "Standard_D2als_v6"
+  size                  = var.vm_size
   admin_username        = "azureuser"
   network_interface_ids = [azurerm_network_interface.nic.id]
 
