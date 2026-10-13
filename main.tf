@@ -5,6 +5,12 @@ terraform {
       version = "~> 4.0"
     }
   }
+  backend "azurerm" {
+    resource_group_name = "rg-tfstate"
+    storage_account_name = "tfstatetasos2026"
+    container_name = "tfstate"
+    key = "terraform-lab.tfstate"
+  }
 }
 
 provider "azurerm" {
