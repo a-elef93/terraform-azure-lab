@@ -15,3 +15,8 @@ variable "vm_size" {
   type        = string
   default     = "Standard_D2als_v6"
 }
+
+variable "db_password" {
+  type      = string
+  sensitive = true
+}
