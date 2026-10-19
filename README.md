@@ -1,4 +1,5 @@
 # terraform-azure-lab
+[![Terraform CI](https://github.com/a-elef93/terraform-azure-lab/actions/workflows/terraform.yml/badge.svg)](https://github.com/a-elef93/terraform-azure-lab/actions/workflows/terraform.yml)
 
 Azure infrastructure provisioned with Terraform: resource group, virtual network, subnet, network security group, public IP, network interface and a Linux virtual machine reachable over SSH. State is stored remotely in Azure Storage.
 
